@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-1 Basics in JavaScript</title>
+</head>
+<body>
+    Task-1<br>
+    Expand the script to include a ternary operation 
+    that checks if a user is an adult (18+) or a minor.<br><br>
+
+    Task-2<br>
+    Grade Classification: Declare a variable score and 
+    set it to a value between 0 and 100.
+    Use nested ternary operators to classify the score into grades:
+    A (>= 90), B (>= 75), C (>= 60), D (>= 45), and F (below 45).
+    Log the grade.<br><br>
+
+    Task-3<br>
+    Temperature Check: Declare a variable temperature and 
+    use nested ternary operators to categorize it as "Hot" (above 30),
+    "Warm" (20-30), "Cool" (10-19), and "Cold" (below 10). 
+    Log the result.<br><br>
+
+    Task-4<br>
+    Age Group: Declare a variable age and 
+    use the ternary operator to classify the age into "Child"
+    (0-12), "Teen" (13-19), "Adult" (20-64), 
+    and "Senior" (65 and above). Log the result<br><br>
+
+
+    <script>
+        //Task-1
+        // var age=prompt('Enter your age : ')
+        // console.log(age>18?'adult':'minor')
+
+        //Task-2
+        // var score=prompt('Enter score : ')
+        // console.log(score>=90 ? 'A' : score>=75 ? 'B' : score>=60 ? 'C' : score>=45? 'D' : 'F')
+
+        //Task-3
+        // var temperature=prompt('Enter current temperature : ')
+        // console.log(temperature>30 ? 'Hot' : temperature>=20 ? 'Warm' : temperature>10 ? 'Cool' : 'Cold')
+
+        //Task-4
+        var classify=prompt('Enter age group : ')
+        console.log(classify>0 && classify<=12 ? 'Child' : classify<20 ? 'Teen' : classify<65 ? 'Adult' : classify>=65 ? 'Senior' : 'Error')
+
+    </script>
+
+
+    
+</body>
+</html>
