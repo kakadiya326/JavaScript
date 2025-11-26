@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope of variable </title>
+</head>
+
+<body>
+    <script>
+        //Global scope
+        let message = 'Global scope';
+        function greet() {
+            console.log(message);
+        }
+        greet();
+        console.log(message);
+
+        var count = 10;
+        function showCount() {
+            console.log(count);
+        }
+        showCount();
+        console.log(window.count);
+
+        //Block scope
+        {
+            let message1 = "Block scope";
+            console.log(message1);
+        }
+        // console.log(message1);//Reference error
+
+        let age = 20;
+        if (age >= 18) {
+            const canVote = true;
+            console.log('Inside block ', canVote);
+        }
+        // console.log('Outside block ',canVote);//Reference error
+
+
+        //Local scope
+        function show() {
+            let message2 = 'Local scope';
+            console.log(message2);
+        }
+        show();
+        // console.log(message2);////Reference error
+
+        //Scope chaining
+        let a = 10;
+        function chain() {
+            let a = 20;
+            {
+                let a = 30;
+                console.log(a);
+            }
+            console.log(a);
+        }
+        console.log(a);
+        chain();
+
+        //Closure
+        function outer(x) {
+            function inner(y) {
+                return x + y;
+            }
+            return inner
+        }
+        //Create a Closure
+        add=outer(5)
+        //Even though outer fun has finished; x is remembered
+        console.log(add(5));
+        console.log(add(5));
+
+
+        //Closure example-2
+        function outer1(){
+            let count=0;
+            console.log('Outer fun');
+            return function(){
+                count++;
+                console.log(count);
+            }
+        }
+        outer1()();
+        outer1()();
+        abc=outer1();
+        abc();
+        abc();
+    </script>
+</body>
+
+</html>

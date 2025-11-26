@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops </title>
+</head>
+
+<body>
+    <script>
+        /*        (1)            (2)(5)(8)      (4)(7)
+            for (Initialization; Condition;   updation;)
+            {    (3)(6)
+                console.log();
+            }
+
+            for Loop
+            while Loop
+            do while Loop
+            for in Loop
+            for of Loop
+
+            break : It is used to terminate the entire loop.
+            continue : It is used to skip the current iteration.
+
+            for (let i=1; i<10; i++){
+                console.log(i);
+                if (i==5) {
+                  break;
+                }
+            }
+
+            for (let i = 0; i < 10; i++) {
+              if (i==5) {
+                continue;
+              }
+                console.log(i);
+            }
+
+        */
+
+        for (let i = 1; i < 10; i++) {
+            console.log('break --> ',i);
+            if (i == 5) {
+                break;
+            }
+        }
+
+
+        for (let i = 0; i < 10; i++) {
+            if (i == 5) {
+                continue;
+            }
+            console.log('continue --> ',i);
+        }
+
+
+        // Nested for Loop
+        for (let i = 0; i <=5; i++) {
+          console.log('Outer for Loop --> ',i);
+          for (let j = 0; j <=10; j++) {
+            console.log('Inner for Loop --> ',j);
+            if (j==3) {
+              break
+            }
+          }
+        }
+
+        // for in Loop
+        str="Hello World";
+        for(let i in str){
+            console.log(str[i]);
+        }
+
+        obj={
+            name:'Chiranj',
+            age:23,
+            gender:'Male'
+        };
+
+        for(let i in obj){
+            console.log(obj[i]);
+        }
+
+        // for of Loop
+
+        obj = {
+            name: 'Chiranj',
+            age: 23,
+            gender: 'Male'
+        };
+
+        str = 'Hello World';
+        arr = ['HTML', 'CSS', 'JS'];
+
+        for (let i of Object.keys(obj)){
+            console.log(i);
+        }
+
+        for (let i of str){
+            console.log(i);
+        }
+
+        for (let i of arr){
+            console.log(i);
+        }
+
+        password = "1234";
+        attempt=0;
+        while(true){
+            inp=prompt('Enter your password : ')
+            if (inp==password) {
+              console.log('Granted');
+              break;
+            }
+            else{
+                attempt++;
+                if(attempt==3){
+                    console.log('Try after 24 hours, card is block');
+                    break;
+                }
+            }
+        }
+
+        //Product Object
+        data=[
+            {
+                product:52,
+                status:'expired'
+            },
+            {
+                product:55,
+                status:'expired'
+            },
+            {
+                product:57,
+                status:'not expired'
+            },
+        ];
+
+        for(let i of data){
+            if(i.status=='expired'){
+                continue;
+            }
+            console.log(i.product);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+
+        }
+
+        .mealCard {
+            border: 2px solid black;
+            width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .mealTitle {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .mealSubContent {
+            font-size: 16px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="con">
+        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=GZQGy9oscVk" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+
+    </div>
+
+    <script>
+        let mainDiv = document.querySelector('.con')
+        async function App() {
+            const f = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=Potato");
+            console.log(f);
+            const data = await f.json();
+
+            data.meals.map(me => {
+
+                let card = document.createElement("div");
+                card.setAttribute("class", "mealCard");
+                let title = document.createElement("h1")
+                title.setAttribute("class", "mealTitle");
+                title.innerText = me.strMeal;
+                card.appendChild(title);
+                mainDiv.appendChild(card);
+                for (let key in me) {
+                    let subContent = document.createElement("div");
+                    subContent.setAttribute("class", "mealSubContent");
+                    subContent.innerText = `${key} : ${me[key]}`;
+                    card.appendChild(subContent);
+                }
+
+
+
+            })
+
+        }
+        App();
+    </script>
+</body>
+
+</html>

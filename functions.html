@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function </title>
+</head>
+
+<body>
+    <script>
+        /*
+            function name(params) {
+                code to be executed
+            }
+        */
+
+        //Named Function
+        function greet() {
+            console.log('Named Function');
+        }
+        greet();
+
+        //Anonymous function
+        let ano = function () {
+            console.log('Anonymous function');
+        }
+        ano();
+
+        //Arrow function
+        var str = 'Arrow function'
+        var arrowFun = (str) => {
+            console.log(str);
+        }
+        arrowFun(str);
+
+        //Anonymous function as a callback function
+        setTimeout(function () {
+            console.log('This message appear after 2 second');
+        }, 2000);
+
+        //Anonymous function in an array method.
+        let num = [1, 2, 3, 4, 5];
+        let doubled = num.map(function (num) {
+            return num * 2;
+        })
+        console.log(doubled);
+
+        //CallBack function
+        function hello(){
+            return "Hello CallBack function triggered"
+        }
+
+        function hello1(j){
+            var a=j()
+            return a;
+        }
+
+        console.log(hello1(hello));
+
+        //CallBack function example 2
+        function greet1(name,callback){
+            console.log('Hello '+name);
+            callback();
+        }
+        function sayGoodBoy(){
+            console.log('example 2');
+        }
+        greet1("CallBack function",sayGoodBoy);
+
+        //IIFE: Immediate invoking function
+        (function(){
+            let message="IIFE";
+            console.log(message);
+        })();
+
+        //with parameter
+        (function(a,b,c){
+            let message="IIFE --> ";
+            console.log(message,a,b,c);
+        })(2,3,4);
+
+        //with arrow function 
+        (()=>{
+            console.log("IIFE with arrow function ");
+        })();
+
+        
+
+
+    </script>
+</body>
+
+</html>

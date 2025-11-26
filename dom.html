@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model </title>
+</head>
+
+<body>
+    <h1 id="elID">1</h1>
+    <h1 class="el">2</h1>
+    <h1>3</h1>
+    <h1 class="el">4</h1>
+    <h1 id="elID">5</h1>
+
+
+    <script>
+        //get Elements by tags name it will return HTMLCollection
+        var tagName = document.getElementsByTagName('h1');
+        console.log('getElementsByTagName ',tagName[0]);
+        console.log('getElementsByTagName ',tagName);
+        console.log('getElementsByTagName ',tagName[3].innerHTML);
+        console.log('getElementsByTagName ',tagName[3].innerText);
+
+        //get Elements by tags name it will return HTMLCollection
+        var className = document.getElementsByClassName('el');
+        console.log('getElementsByClassName ',className);
+        console.log('getElementsByClassName ',className[0]);
+        console.log('getElementsByClassName ',className[1].innerText);
+
+        //get Elements by id name it will return  first occurance only
+        var byID = document.getElementById('elID');
+        console.log('getElementById ',byID);
+
+        //querySelector it will return first occurance only
+        var byQuery = document.querySelector('.el');
+        console.log('querySelector ',byQuery)
+
+        //querySelectorAll it will return first occurance only
+        var byQueryAll = document.querySelectorAll('.el');
+        console.log('querySelectorAll ', byQueryAll);
+        console.log('querySelectorAll ', byQueryAll[0]);
+        console.log('querySelectorAll ', byQueryAll[1].innerText);
+        console.log('querySelectorAll ', byQueryAll[1].textContent);
+    </script>
+</body>
+
+</html>
