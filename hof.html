@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <!-- <script>
+    <script>
         /*
             map() always returns a new array
             ✔ It does not change the original array
@@ -48,12 +48,12 @@
 
 
         //object's val 
-        const users = [
+        const users1212 = [
             { name: "A", age: 20 },
             { name: "B", age: 25 },
         ];
 
-        const names = users.map((data) => {
+        const names = users1212.map((data) => {
             return data.name
         });
 
@@ -61,17 +61,17 @@
 
 
         //chain map
-        const result = arr
+        const result1212 = arr
             .map(v => v * 2)
             .map(v => v + 1);
-        console.log('chain map ', result);
+        console.log('chain map ', result1212);
 
         //clone array
         const clone = arr.map(v => v);
         console.log('clone array ', clone);
 
-    </script> -->
-    <!-- <script>
+    </script>
+    <script>
         /*
             filter() loops through an array and returns only those elements that match a given condition.
 
@@ -119,11 +119,11 @@
         var filterAge = data.filter(val => val.age >= 23)
         console.log('Filter age -> ', filterAge);
 
-    </script> -->
-    <!-- <script>
-        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    </script>
+    <script>
+        let arr1212 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         var c = 0
-        let sum = arr.reduce((acc, val) => {
+        let sum = arr1212.reduce((acc, val) => {
             return acc + val
         }, 0);
         console.log(sum);
@@ -138,7 +138,7 @@
 
         console.log(count);
 
-    </script> -->
+    </script>
 
     <script>
         /*
@@ -150,18 +150,18 @@
 
             */
 
-        let nums = [10, 2, 5, 100];
-        console.log('wrong way to sort number ---> ', nums.sort()) // this will convert number to string then compare string
+        let nums12 = [10, 2, 5, 100];
+        console.log('wrong way to sort number -> ', nums12.sort()) // this will convert number to string then compare string
 
-        let nums1 = [10, 2, 5, 100];
-        console.log('correct way to sort number ---> ', nums1.sort((a, b) => a - b))// ascending
-        console.log('correct way to sort number ---> ', nums1.sort((a, b) => b - a))// descending
+        let nums112 = [10, 2, 5, 100];
+        console.log('correct way to sort number -> ', nums112.sort((a, b) => a - b))// ascending
+        console.log('correct way to sort number -> ', nums112.sort((a, b) => b - a))// descending
 
 
         //sort array
-        let words = ["Banana", "Apple", "carrot"];
-        console.log('word sorting ', words.sort());
-        console.log('Case-insensitive sorting ', words.sort((a, b) => a.localeCompare(b))); //Case-insensitive sorting
+        let words12 = ["Banana", "Apple", "carrot"];
+        console.log('word sorting ', words12.sort());
+        console.log('Case-insensitive sorting ', words12.sort((a, b) => a.localeCompare(b))); //Case-insensitive sorting
 
 
         //Sort object
@@ -175,12 +175,104 @@
         console.log('Object sorting by age descending', students.sort((a, b) => b.age - a.age));//descending
 
         //sorted copy
-        let arr = [5, 1, 4, 3];
-        let sortedCopy = [...arr].sort((a, b) => a - b);
-        console.log('Original array ',arr);
-        console.log('Copy of Original  ',sortedCopy);
+        let arr12 = [5, 1, 4, 3];
+        let sortedCopy = [...arr12].sort((a, b) => a - b);
+        console.log('Original array ', arr12);
+        console.log('Copy of Original  ', sortedCopy);
 
     </script>
+
+    <script>
+        /*
+            JavaScript some() method
+
+            The some() method is a Higher-Order Function (HOF) in JavaScript used 
+                to check if at least one element in an array passes a given test (condition).
+
+            ✔ It returns true if any element satisfies the condition
+            ✔ It returns false if no elements satisfy the condition
+            ❌ It does not modify the original array
+        
+        
+        */
+
+        let arr = [1, 3, 5, 7, 9, 10];
+
+        let someOfResult = arr.some((val) => val % 2 === 0);
+        let everyOfResult = arr.every((val) => val % 2 === 0);
+
+        console.log(someOfResult); // true
+        console.log(everyOfResult); // false
+
+
+        //Check atleast 5 length words is there.
+        let words = ["cat", "banana", "dog"];
+
+        let check = words.some(w => w.length > 5);
+
+        console.log(check); // true
+
+
+        //Check 18+ age is there or not.
+        let users = [
+            { name: "A", age: 20 },
+            { name: "B", age: 17 },
+            { name: "C", age: 25 }
+        ];
+
+        let hasAdult = users.some(user => user.age >= 18);
+
+        console.log(hasAdult); // true
+
+
+        /*
+            🌟 JavaScript every() Method
+
+            The every() method checks if all elements in an array pass a condition.
+
+            ✔ Returns true only if every element satisfies the condition
+            ❌ Returns false immediately when one element fails
+            🔹 Does not modify the original array
+
+        */
+
+
+        //Check if all numbers are even
+        let nums = [2, 4, 6, 8];
+
+        let result = nums.every(n => n % 2 === 0);
+
+        console.log(result); // true
+
+
+        //If one fails
+        let nums1 = [2, 4, 5, 8];
+
+        let result1 = nums1.every(n => n % 2 === 0);
+
+        console.log(result1); // false
+
+        //Validate student pass status
+        let marks = [40, 50, 60, 70];
+
+        let allPassed = marks.every(m => m >= 35);
+
+        console.log(allPassed); // true
+
+        //Using every() with objects
+        let users1 = [
+            { name: "A", age: 20 },
+            { name: "B", age: 25 },
+            { name: "C", age: 18 }
+        ];
+
+        let isAdult = users1.every(user => user.age >= 18);
+
+        console.log(isAdult); // true
+
+
+    </script>
+
 </body>
 
 </html>
