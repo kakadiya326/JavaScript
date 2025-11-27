@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API calling </title>
+</head>
+
+<body>
+    <script>
+        //By using .then() and .catch()
+
+        console.log('Using .then() and .catch()');
+        var a = fetch('https://fakestoreapi.com/users')
+            .then(val => val.json())
+            .then((data) => console.log(data))
+            .catch((e) => console.log(e))
+
+
+        //By using async and await 
+
+        async function getData() {
+            var res = await fetch('https://fakestoreapi.com/users')
+            var data = await res.json();
+            console.log(data);
+            console.log('Using .async and await');
+        }
+        getData();
+
+        //find()
+        //it is used to return the value of first precedence which satisfies the condition.
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        var newArr = arr.find(val => val > 4);
+        console.log(newArr);
+
+        //Destructure
+        var arr = ['html', 'css', ['python', 'node', [['django', 'flask'], ['GoPython', 'NewLan']]]]
+        var newArr = [a, b, [p, q, [[d, f], ,]]] = arr;
+        console.log('Destructure : ', newArr)
+
+        //Destructure array
+        var arr = [1, 2, 3, 4, 5, 6]
+        var [a, b, ...c] = arr
+        console.log('Destructure array : ', c);
+
+        //Copy and deepCopy
+
+        //shallow copy
+        let arrcopy = [1, 2, 3, 4, 5];
+        let b1 = arrcopy
+        b1[0] = 'Python';
+        console.log('Original array: ', arrcopy[0]);
+        console.log('Original array\'s copy : ', b1[0]);
+
+        //deep copy 
+        let deepArr = [1, 2, 3, 4, 5, 6];
+        let deepCopy = [...deepArr];
+        deepCopy[0] = 'python';
+        console.log('Original array : ', deepArr[0]);
+        console.log('Original array\'s deep copy : ', deepCopy[0]);
+
+        //adding key to array of object
+        const products = [
+            {
+                name: 'Lenova',
+                model: 'p25',
+                price: '23000'
+            },
+            {
+                name: 'HP',
+                model: 'z45',
+                price: 50000
+            },
+            {
+                name: 'Dell',
+                model: 'lattidute 3200',
+                price: 15000
+            },
+            {
+                name: 'Lenova',
+                model: 'VHR2',
+                price: 100000
+            },
+        ];
+
+        let newProducts=products.map(val=>{
+            return{
+                ...val,
+                gst:val.price*1.18
+            }
+        })
+
+        console.log(newProducts);
+
+
+    </script>
+</body>
+
+</html>
