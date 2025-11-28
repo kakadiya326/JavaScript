@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Excercise </title>
+</head>
+
+<body>
+    <script>
+        //Strings are immutable
+        var str = 'Hello World..!!';
+        str[0] = 'P';
+        console.log(str);
+
+        //backticks : String Interpolation
+        a = 10;
+        //template literals `${a}`
+        var c = `Multiline 
+
+        String ${a}`
+        console.log('String Interpolation : ', c);
+
+        //How to access String
+        console.log('Using For of');
+        for (i of str) {
+            console.log(i);
+        }
+
+        console.log('Using For in');
+        for (i in str) {
+            console.log(str[i]);
+        }
+
+        console.log('Using For loop');
+        for (let i = 0; i < str.length; i++) {
+            console.log(i);
+            console.log(str[i]);
+        }
+
+        //convert string element into arr
+        var arr = [...str];
+        console.log('convert string element into arr : ', arr);
+
+        //convert string element into object
+        var obj = { ...str }
+        console.log('convert string element into object : ', obj);
+
+
+        //Methods of string 
+
+        //length
+        console.log('length of string : ', str.length);
+        //at() method : take index position and return element 
+        console.log('at() method : ', str.at(0), str.at(-1));
+        //charAt() method : take index position and return element. 
+        console.log('charAt() method : ', str.charAt(0), str.charAt(-1)); //Negative indexing not allow
+        //charCodeAt() : take index position and return ascii value character given index 
+        console.log('charCodeAt() method : ', str.charCodeAt(0), str.charCodeAt(-1));  //Negative indexing not allow
+        //String.fromCharCode() method : return char by given ascii value 
+        console.log('String.fromCharCode() method : ',
+            String.fromCharCode(65),
+            String.fromCharCode(97),
+            String.fromCharCode(90),
+            String.fromCharCode(122)
+        );
+
+        //slice() : return new string 
+        console.log('slice() method : ', str.slice(0, 5)); //start at 0 index and ends at 5th index position
+        console.log('slice() method : ', str.slice(5)); //start from 5th index 
+        console.log('slice() method : ', str.slice(-4)); //start from -5th index 
+        console.log('slice() method : ', str.slice(-4, -1)); //start from 5th index 
+
+        //substring() method : return new string
+        console.log('subString() method : ', str.substring(0, 5));
+        console.log('subString() method : ', str.substring(5));
+        console.log('subString() method : ', str.substring(-5));
+
+        //substr() : it will take second argument as length.
+        /*
+            ❗Key Rule of substr()
+            substr(startIndex, length)
+            First parameter → Starting index (0-based)
+            Second parameter → Length of characters to extract, NOT ending index
+
+            str.substr(0, 5);
+            Start at index 0
+            Extract 5 characters
+            👉 Output: "Hello"
+            Characters extracted: 0,1,2,3,4
+        
+        */
+        console.log('substr() method : ', str.substr(0, 5)); //start at zero to 5th length : 0,1,2,3,4=5
+        console.log('substr() method : ', str.substr(6, 9)); //start at 6th position upto 9 length : 6,7,8,9,10,11,12,13,14=9
+
+
+        //concat() method
+        let str1 = 'Patel ';
+        let str2 = 'Chiranj';
+        console.log('+ operator : ', str1 + str2);
+        console.log('concat() : ', str1.concat(str2));
+
+        //toUpperCase() and toLowerCase() method 
+        /*
+            toLocaleLowerCase()
+            Converts string to lowercase based on specific locale (language rules).
+            Helps when capitalization rules vary in different languages.
+            Example: Turkish language has special characters like İ / i.
+        */
+        console.log('toUpperCase() : ', str.toUpperCase());
+        console.log('toUpperCase() : ', str.toLowerCase());
+        console.log('toLocaleUpperCase() : ', str.toLocaleUpperCase('tr'));
+        console.log('toLocaleLowerCase() : ', str.toLocaleLowerCase('tr'));
+
+        //trim() : 
+        var newStr = '                 chiranj                ';
+        console.log('-', newStr.trim(), '-');
+        console.log(newStr.trimRight());
+        console.log(newStr.trimLeft());
+
+        //split() : convert string to array based on saperator.
+        console.log('split() : ', str.split(' '));
+
+        //repeat() : concate string n number of times
+        console.log('repeat() : ', str.repeat(4));
+
+        //replace() : replace old sub string to new.
+        /*
+            replace() = simple replace, one occurrence (unless regex with g)
+            replaceAll() = easy full replacement without regex
+        */
+
+
+        let text = "Hello hello HELLO";
+        console.log(text.replace(/hello/gi, "hi"));
+        // Output: "hi hi hi"
+        let price = "Item costs 200";
+        console.log(price.replace(/\d+/, (match) => match * 2));
+        // Output: "Item costs 400"
+        console.log("a1b1c1".replaceAll(/1/g, "X"));
+        // Output: "aXbXcX"
+
+        //Seach Method : 
+
+        // indexOf() lastIndexOf() : 
+
+        /*
+        🔍 1. indexOf(searchValue, startIndex) Meaning
+            Searches for a given string or character from left to right
+            Starts searching from the provided startIndex
+            Returns the index position of the first match
+            Returns -1 if not found
+
+
+            🔁 2. lastIndexOf(searchValue, startIndex) Meaning
+            Searches for a string or character from right to left
+            Starts searching backwards from startIndex
+            Returns the last occurring position before the startIndex
+            Returns -1 if not found
+        
+        */
+
+        var lstr = 'Hello world hi World LD';
+        console.log('indexOf() : ', lstr.indexOf('h', 10));
+        console.log('lastIndexOf() : ', lstr.lastIndexOf('w', 10));
+
+        //search() method : return index of substring 
+        console.log('search() : ', lstr.search('hi'));
+
+        //incudes() method : return true / false 
+        console.log('incudes() : ', lstr.includes('world'));
+
+        //match() method : return result in colletion        
+        console.log('match() : ', lstr.match(/ld/g));
+        console.log('match() : ', lstr.match(/ld/ig));
+
+
+        //How to reverse the string
+        console.log('method 1 : ', lstr.split('').reverse().join(''));
+
+        var rev = ""
+        for (var i = lstr.length - 1; i >= 0; i--) {
+            rev += lstr[i];
+        }
+        console.log('method 2 : ', rev);
+
+        var rev1 = ""
+        for (val of lstr) {
+            rev1 += val
+        }
+        console.log('method 3 : ', rev);
+
+        //word count
+        console.log('word count : ', lstr.split(' ').length);
+
+
+    </script>
+</body>
+
+</html>
