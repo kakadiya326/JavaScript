@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <script>
+        //1) literal notaion 
+        let obj = {
+            key: 'value',
+        }
+
+        //2) by Constructure
+        var con = new Object({
+            key: 'value',
+            key1: 'value1'
+        })
+
+        console.log('literal notaion : ', obj);
+        console.log('by Constructure : ', con);
+
+
+        //Access obj
+
+        //by dot nation
+        console.log('dot nation Access obj : ', con.key);
+        //sqaure notaion 
+        console.log('sqaure notaion Access obj :', con['key']);
+
+
+        // How to modify
+        con.key1 = 'value2'
+        console.log('By dot notaion modify : ', con);
+
+        con['key'] = 'value1'
+        console.log('By sqaure notaion modify : ', con);
+
+
+        //how to add new 
+        con.key2 = 'value2';
+        console.log('By dot notaion add : ', con);
+
+        con['key3'] = 'value3';
+        console.log('By sqaure notaion add : ', con);
+
+        //How to delete
+        delete con['key3']
+        console.log('delete key3 : ', con);
+
+        //current context  
+        let objj={
+            name:'Chiranj',
+            age:23,
+            getData:function(){
+                console.log(this.name);
+                console.log(this.age);
+                console.log(this);
+            }
+        }
+        objj.getData();
+
+        console.log('window ',this);
+
+        //iterating object 
+        let object12={
+            name:'Chiranj',
+            age:23,
+        }
+        for (var i in object12){
+            console.log('iterating object\'s key : ',i);
+            console.log('iterating object\'s value : ',object12[i]);
+        }
+
+        //Object method
+        console.log('Object method');
+
+        console.log('printing keys : ',Object.keys(object12));
+        console.log('printing values : ',Object.values(object12));
+        console.log('printing keys and values : ',Object.entries(object12));
+
+        //Concate Objects
+
+        const cityObj={
+            city1:'City1',
+            city2:'City2',
+            city3:'City3',
+        };
+
+        const nameObj={
+            name1:'name1',
+            name2:'name2',
+            name3:'name3',
+        };
+
+        console.log(Object.assign({},cityObj,nameObj));//create new object
+        console.log(Object.assign(cityObj,nameObj));//add in first object 
+        console.log(cityObj);
+
+        //destructure using spread operator
+        console.log('destructure using spread operator : ',{...cityObj,...nameObj});
+
+        //destructure other way
+
+        let products={
+            name:'HP',
+            price:23000,
+            desc:{
+                mainDesc:'Very Very Good',
+                subDesc:'Good',
+            }
+        }
+
+        let {name,price,desc:{mainDesc:Main_Description,subDesc:Sub_Description}}=products
+        console.log('destructure other way : ',Main_Description);
+
+        //Seal()
+        Object.seal(products);
+        products.discount=2300;//new key doesn't allow
+        delete products.price;// deletion of key doesn't allow
+        products.name='Lenova' // update in current object's key's value allow
+        
+        //Freeze() - we can not do anything if it is freeze().
+        Object.freeze(products);
+        products.desc='update';
+        
+        console.log('--',products);
+
+        //hasOwnProperty()
+        console.log(products.hasOwnProperty('name')); // return true/false
+
+    </script>
+</body>
+
+</html>
