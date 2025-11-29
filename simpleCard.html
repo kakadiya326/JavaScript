@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Card creation </title>
+    <style>
+        body {
+            margin: 0px;
+            width: 100%;
+            gap: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            color: white;
+            background-color: rgba(133, 8, 8, 0.705);
+            width: 32%;
+            height: max-content;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 20px 8px black;
+        }
+
+        .card h4 {
+            width: fit-content;
+            background-color: #e53935;
+            border-radius: 20px;
+            padding: 10px 40px;
+        }
+
+        .card h4:hover{
+            background-color: #c62828;
+            
+        }
+        
+    </style>
+</head>
+
+<body>
+    <script>
+        let users = [
+            { id: 1, name: "Rahul", age: 20, city: "Mumbai" },
+            { id: 2, name: "Priya", age: 22, city: "Delhi" },
+            { id: 3, name: "Amit", age: 19, city: "Pune" },
+            { id: 4, name: "Sita", age: 21, city: "Surat" },
+            { id: 5, name: "Karan", age: 23, city: "Ahmedabad" },
+            { id: 6, name: "Pooja", age: 20, city: "Rajkot" },
+            { id: 7, name: "Rohan", age: 24, city: "Jaipur" },
+            { id: 8, name: "Neha", age: 22, city: "Chennai" },
+            { id: 9, name: "Vikas", age: 21, city: "Bengaluru" },
+            { id: 10, name: "Komal", age: 20, city: "Indore" },
+            { id: 11, name: "Hitesh", age: 25, city: "Vadodara" },
+            { id: 12, name: "Bhavya", age: 23, city: "Kolkata" },
+            { id: 13, name: "Mina", age: 22, city: "Hyderabad" },
+            { id: 14, name: "Tejas", age: 24, city: "Nashik" },
+            { id: 15, name: "Krish", age: 19, city: "Nagpur" },
+            { id: 16, name: "Anita", age: 20, city: "Noida" },
+            { id: 17, name: "Sagar", age: 21, city: "Thane" },
+            { id: 18, name: "Riya", age: 20, city: "Udaipur" },
+            { id: 19, name: "Vivek", age: 23, city: "Goa" },
+            { id: 20, name: "Sneha", age: 22, city: "Bhopal" }
+        ];
+
+        users.forEach(obj => {
+            let card = document.createElement('div');
+            card.classList.add('card');
+            let nameTag = document.createElement('h4');
+            let ageTag = document.createElement('h7');
+            let cityTag = document.createElement('h7');
+            nameTag.innerText = obj.name;
+            ageTag.innerText = obj.age;
+            cityTag.innerText = obj.city;
+
+            card.append(nameTag, ageTag, cityTag)
+            document.body.append(card);
+        });
+
+
+    </script>
+</body>
+
+</html>
