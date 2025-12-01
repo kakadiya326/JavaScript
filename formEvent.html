@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Event </title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="uname" id="uname" placeholder="Enter user name">
+        <input type="password" name="password" id="password" placeholder="Enter password">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+
+        //based on element level.
+        var inp = document.querySelectorAll('input');
+        console.log(inp);
+
+        //based on document level.
+
+        //var uname=document.forms :: this will give all forms available on document
+        //var uname=document.forms[0] :: this will give out of all form available on document first form 
+        //var uname=document.forms[0][0] :: this give first form's first element
+        var uname = document.forms[0][0]
+        console.log(uname);
+
+
+        //using event parameter
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log(event.target[0].value);
+        })
+
+
+        //how to collect data from form 
+        let arr=[]
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let obj={
+                name:e.target[0].value,
+                password:e.target[1].value,
+                button:e.target[2].type,
+            }
+            arr.push(obj)
+            console.log(arr);
+        })
+    </script>
+</body>
+
+</html>
