@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math and Date excerice </title>
+</head>
+<style>
+    div {
+        width: 100%;
+        height: max-content;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 900;
+
+    }
+
+    div::first-letter {
+        color: brown;
+    }
+</style>
+
+<body>
+    <div></div>
+    <input type="date" name="age" id="age">
+    <div></div>
+    <!-- <script>
+        var num = 10;
+        console.log(num.toFixed(2)); //10.00
+        var num1 = 10.98;
+        console.log(num1.toFixed(1)); //11.0
+        var num2 = 10.93;
+        console.log(num2.toFixed(1)); //10.9
+
+        //Int conversion
+        var conv = '123vhjsd';
+        console.log(parseInt(conv)); //123
+        var conv1 = '    123.34vhjsd   ';
+        console.log(parseInt(conv1)); //123
+        var conv2 = '      vh123jsd    ';
+        console.log(parseInt(conv2)); //Nan
+
+        //float conversion 
+        var str = '123.156dfgdg';
+        console.log(parseFloat(str));
+
+        //Check is number or not
+        console.log('Check is number or not : ');
+        console.log(isNaN('Hello'));
+        console.log(isNaN(undefined));
+        console.log(isNaN('19'));
+        console.log(isNaN(19));
+        console.log(isNaN(true));
+
+        //Number() method : it is used to convert one type to another
+        var n = Number('19');
+        console.log(typeof n);
+
+        //meth methods 
+
+        //ceil()
+
+        console.log('ceil : ', Math.ceil(9.8)); // 10
+        console.log('ceil : ', Math.ceil(9.1)); // 10
+        console.log('ceil : ', Math.ceil(-9.8)); // -9
+
+        //floor()
+        console.log('floor : ', Math.floor(9.8)); // 9
+        console.log('floor : ', Math.floor(9.1)); // 9
+        console.log('floor : ', Math.floor(-9.1)); // -10
+        console.log('floor : ', Math.floor(-9.8)); // -10
+
+        //round()
+        console.log('round : ', Math.round(9.8)); // 10
+        console.log('round : ', Math.round(9.1)); // 9
+        console.log('round : ', Math.round(-9.1)); // -9
+        console.log('round : ', Math.round(-9.8)); // -10
+
+        //random()
+        console.log('round : ', Math.random()); // 0 to 1
+        console.log('round : ', Math.random() * 10); // 0 to 10 in floating point
+        console.log('round : ', Math.round(Math.random() * 10)); // 0 to 10
+
+        var arr = ['frontend', 'backend', 'database'];
+        console.log(arr[Math.abs(Math.ceil(Math.random() * arr.length - 1))]);
+
+        //OTP
+        console.log('OTP : ', Math.round(Math.random() * 10000));
+
+        //trunc() : remove decimal point in number
+        console.log('truc :', Math.trunc(10.5678765)); // 10
+
+        //abs() : convert number into absolute number 
+        console.log('abs() : ', Math.abs(-10)); //10
+
+        //min() 
+        console.log('min : ', Math.min(8, 2, 4, 9, 7)); // 2
+
+        //max()
+        console.log('max : ', Math.max(10, 12, 4, 7, 9)); //12
+
+
+        console.log('sqrt() : ', Math.sqrt(9)); //3
+        console.log('sqrt() : ', Math.pow(9, 3)); //729
+        console.log('sqrt() : ', Math.tan(4)); //1.1578212823495777
+        console.log('sqrt() : ', Math.sin(40)); //0.7451131604793488
+
+
+    </script> -->
+    <script>
+        let date = new Date();
+        console.log('getFullYear : ', date.getFullYear()); //2025
+        console.log('getMonth : ', date.getMonth()); //11
+        console.log('getDay : ', date.getDay()); //1 [Sunday,Monday,...,Saturday]
+        console.log('getDate : ', date.getDate()); //1 [1 to 30 or 31]
+
+        console.log('getHours : ', date.getHours()); //13
+        console.log('getMinutes : ', date.getMinutes()); //59
+        console.log('getSeconds : ', date.getSeconds()); //30
+
+        //weeks
+        let weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        console.log(weeks[date.getDay()]); // Mon
+
+        //Months
+        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        console.log(months[date.getMonth()]); //Dec
+
+        console.log(date.toDateString()); //Mon Dec 01 2025
+        console.log(date.toLocaleDateString()); //01/12/2025
+        console.log(date.toTimeString()); //14:07:46 GMT+0530 (India Standard Time)
+        console.log(date.toLocaleTimeString()); //14:08:22
+
+        let cusDate = new Date();
+        cusDate.setFullYear(2000);
+        cusDate.setMonth(12);
+        cusDate.setDate(23);
+        cusDate.setHours(10);
+        cusDate.setMinutes(10);
+        cusDate.setSeconds(10);
+
+
+        //Age Calculator
+        let c = new Date();
+        let today = new Date();
+        // let year = prompt('Enter you Birth of year : ');
+        let year = 2003;
+        c.setFullYear(year)
+        console.log('Your are ', today.getFullYear() - c.getFullYear(), ' year old ');
+        console.log('seconds you alive on earth : ', (today - c) / (24 * 60 * 60));
+
+        //Digital clock
+        var div = document.querySelector('div');
+        setInterval(() => {
+            let d = new Date();
+            div.innerText = d.toLocaleTimeString();
+            // console.log(div);
+        }, 1000)
+
+        //Age Calculator
+        let div1 = document.querySelectorAll('div')[1];
+        let inp = document.querySelector('input');
+        
+        inp.addEventListener('change', (e) => {
+            var str = String(e.target.value).split('-')[0];
+            div1.innerText = today.getFullYear() - str;
+        });
+
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>
