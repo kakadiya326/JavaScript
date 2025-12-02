@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List </title>
+    <style>
+        ul {
+            width: fit-content;
+            background-color: antiquewhite;
+            display: none;
+
+            padding: 15px 10px 15px 30px;
+            border-radius: 20px;
+        }
+
+        .delete {
+            background-color: rgb(235, 61, 61);
+        }
+
+        .delete:hover {
+            background-color: rgb(163, 6, 6);
+            color: white;
+        }
+
+        .update {
+            background-color: lightgreen;
+        }
+
+        .update:hover {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="Enter item..!!">
+    <button onclick="getData()">Add</button>
+    <ul>
+
+    </ul>
+    <script>
+        let inp = document.querySelector('input');
+        let ul = document.querySelector('ul');
+        function getData() {
+            ul.style.display = 'flex';
+            ul.style.gap = '20px';
+            let li = document.createElement('li');
+            li.style.maskType = 'Anita'
+            let span = document.createElement('span');
+            let delBtn = document.createElement('button');
+            let upBtn = document.createElement('button');
+            delBtn.setAttribute('class', 'delete');
+            upBtn.setAttribute('class', 'update');
+
+            span.innerText = inp.value;
+            delBtn.innerText = 'Delete';
+            upBtn.innerText = 'Update';
+
+            delBtn.addEventListener('click', () => {
+                li.remove();
+            })
+
+            upBtn.addEventListener('click', () => {
+                let newInpu = prompt('Enter a new input : ');
+                span.innerText = newInpu;
+            })
+            li.append(span, upBtn, delBtn);
+            ul.append(li);
+            inp.value = '';
+        } 
+    </script>
+</body>
+
+</html>
