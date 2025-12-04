@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter cards </title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cards {
+            background-color: bisque;
+            padding: 20px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Filtered and sort products </h1>
+    <label for="filter">Filter by:</label>
+    <select id="filter" name="filter">
+        <option value="all">All</option>
+        <option value="Apple">Apple</option>
+        <option value="Samsung">Samsung</option>
+        <option value="OnePlus">OnePlus</option>
+    </select>
+    <label for="sort">Sort by price:</label>
+    <select id="sort" name="sort">
+        <option value="" disabled selected>--select option--</option>
+        <option value="Low">Low to High</option>
+        <option value="High">High to Low</option>
+    </select>
+    <div class="container"></div>
+
+
+    <script>
+        let products = [
+            {
+                brand: "Apple",
+                model: "iPhone 13",
+                price: 799
+
+            },
+            {
+                brand: "Samsung",
+                model: "Galaxy S21",
+                price: 699
+
+            },
+            {
+                brand: "OnePlus",
+                model: "OnePlus 9",
+                price: 729
+
+            },
+            {
+                brand: "Apple",
+                model: "iPhone 12",
+                price: 699
+
+            },
+            {
+                brand: "Samsung",
+                model: "Galaxy S20",
+                price: 599
+
+            },
+            {
+                brand: "OnePlus",
+                model: "OnePlus 8T",
+                price: 599
+
+            },
+            {
+                brand: "Apple",
+                model: "iPhone SE",
+                price: 399
+            },
+            {
+                brand: "Samsung",
+                model: "Galaxy A52",
+                price: 499
+
+            },
+            {
+                brand: "OnePlus",
+                model: "OnePlus Nord",
+                price: 429
+
+            },
+            {
+                brand: "Apple",
+                model: "iPhone 11",
+                price: 599
+            },
+            {
+                brand: "Samsung",
+                model: "Galaxy Note 20",
+                price: 999
+
+            },
+            {
+                brand: "OnePlus",
+                model: "OnePlus 7T",
+                price: 499
+            }
+        ]
+
+        let container = document.querySelector(".container");
+        function cards(products) {
+            container.innerText = '';
+            products.forEach(obj => {
+                let cards = document.createElement('div');
+                cards.setAttribute('class', 'cards');
+                cards.innerHTML = `
+                    <h1>${obj.brand}</h1>
+                    <div>${obj.model}</div>
+                    <div>${obj.price}</div>
+                `;
+
+                container.append(cards)
+            })
+        }
+        cards(products);
+
+        let filteredByBrand = document.getElementById('filter');
+        filteredByBrand.addEventListener('change', () => {
+            if (filteredByBrand.value == 'all') {
+                cards(products);
+            } else {
+                filterArr = products.filter((val) => {
+                    return val.brand == filteredByBrand.value;
+                })
+                cards(filterArr);
+            }
+        })
+
+        let sortByPrice = document.getElementById('sort');
+        sortByPrice.addEventListener('change', () => {
+            if (sortByPrice.value === 'High') {
+                console.log('High');
+                let sortedArr = products.sort((a, b) => {
+                    return b.price - a.price
+                })
+                cards(sortedArr);
+            }
+            if (sortByPrice.value === 'Low') {
+                console.log('Low');
+                let sortedArr = products.sort((a, b) => {
+                    return a.price - b.price
+                })
+                cards(sortedArr);
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
