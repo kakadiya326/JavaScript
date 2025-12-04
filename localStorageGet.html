@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Data get file </title>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+    <script>
+        let data = JSON.parse(localStorage.getItem('credentials'));
+        let container = document.querySelector('.container');
+        data.forEach(obj => {
+            let card = document.createElement('div');
+            card.innerHTML = `
+                <h1>${obj.name}</h1>
+                <h1>${obj.email}</h1>
+            `;
+            container.append(card);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage </title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="name" id="name">
+        <input type="email" name="emal" id="email">
+        <button>Add</button>
+    </form>
+    <script>
+        let age = 25;
+        localStorage.setItem('age', age);
+        var name = localStorage.setItem('name', 'Chiranj Patel');
+
+        let obj = {
+            name:'Chiranj Patel',
+            age:23,
+        }
+        localStorage.setItem('stdData',JSON.stringify(obj));
+        let data =JSON.parse(localStorage.getItem('stdData'))
+        document.body.innerHTML=` ${localStorage.getItem('name')} || ${localStorage.getItem('age')} 
+            ${data.name + data.age}`;
+
+        let arr = []
+        var form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let object = {
+                name: e.target[0].value,
+                email: e.target[1].value,
+            }
+            arr.push(object);
+            console.log(arr);
+            localStorage.setItem('credentials', JSON.stringify(arr));
+        })
+    </script>
+</body>
+
+</html>
